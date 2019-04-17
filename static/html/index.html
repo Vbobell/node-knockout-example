@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>gulp + knockout + node example</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+</head>
+
+<body>
+    <header>
+        <section>
+            <h1>gulp + knockout + node example</h1>
+        </section>
+    </header>
+    <main>
+        <section>
+            <ul data-bind="foreach: { data: contacts, as: 'contact' }">
+                <li>
+                    <article>
+                        <h2>Contato</h2>
+                        <p>
+                            Nome: 
+                            <span data-bind="text: contact.person.name"></span>
+                        </p>
+                        <p>
+                            Data de Nascimento: 
+                            <span data-bind="text: contact.person.formatDate()"></span>
+                        </p>
+                        <p>
+                            Telefone: 
+                            <span data-bind="text: contact.phone.formatPhone()"></span>
+                        </p>
+                        <p>
+                            Celular: 
+                            <span data-bind="text: contact.cellPhone.formatPhone()"></span>
+                        </p>
+                    </article>
+                </li>
+            </ul>
+        </section>
+        <script type="text/javascript" src="/static/js/knockout-min.js"></script>
+        <script type="text/javascript" src="/static/js/concat-min.js"></script>
+        <script>
+            const contactView = new ContactView();
+
+            contactView.setObservable();
+        </script>
+    </main>
+</body>
+
+</html>
