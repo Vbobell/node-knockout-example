@@ -4,7 +4,8 @@
   "description": "project to nodejs training.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d static"
   },
   "keywords": [
     "nodejs",
@@ -14,6 +15,7 @@
   "author": "Vinicius Böbel",
   "license": "ISC",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "knockout": "^3.5.0"
   }
 }
