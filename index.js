@@ -41,7 +41,7 @@ const server = http.createServer((req, res) => {
     } else {
         switch(reqUrl.pathname) {
             case "/":
-                fs.readFile(path.join(__dirname, "/static/html/index.html"), function(err, html){
+                fs.readFile(path.join(__dirname, "/static/index.html"), function(err, html){
                     res.writeHeader(200, {'Content-Type': 'text/html'});
                     res.write(html);
                     res.end();
