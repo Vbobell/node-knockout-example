@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
     let reqUrl = url.parse(req.url, true);
 
     if (reqUrl.pathname.match(/static\/js/ig)) {
-        fs.readFile(path.join(__dirname, reqUrl.pathname), function (err, js) {
+        fs.readFile(path.join(__dirname, reqUrl.pathname.replace(/\/node-knockout-example\//ig, "")), function (err, js) {
             try {
                 if (err) throw "not found";
 
@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
             }
         });
     } else if (reqUrl.pathname.match(/static\/css/ig)) {
-        fs.readFile(path.join(__dirname, reqUrl.pathname), function (err, css) {
+        fs.readFile(path.join(__dirname, reqUrl.pathname.replace(/\/node-knockout-example\//ig, "")), function (err, css) {
             try {
                 if (err) throw "not found";
 
@@ -60,7 +60,7 @@ const server = http.createServer((req, res) => {
         res.end();
     } else {
         switch (reqUrl.pathname) {
-            case "/":
+            case "/node-knockout-example":
                 fs.readFile(path.join(__dirname, "/static/index.html"), function (err, html) {
                     res.writeHeader(200, { 'Content-Type': 'text/html' });
                     res.write(html);
