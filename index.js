@@ -38,6 +38,26 @@ const server = http.createServer((req, res) => {
                 res.end();
             }
         });
+    } else if (reqUrl.pathname.match(/contacts.json/ig)) {
+        let contacts = [];
+
+        let person = new Person("Jhon", "03/17/1992");
+        let phone = new Phone("99", "33333333", "residential");
+        let phoneCell = new Phone("99", "999999999", "cellular");
+        let contact = new Contact(person, phone, phoneCell);
+
+        contacts.push(contact.toObject());
+
+        person = new Person("Jana", "06/17/1970");
+        phone = new Phone("99", "30000000", "residential");
+        phoneCell = new Phone("99", "999999999", "cellular");
+        contact = new Contact(person, phone, phoneCell);
+
+        contacts.push(contact.toObject());
+
+        res.writeHeader(200, { 'Content-Type': 'text/json' });
+        res.write(JSON.stringify({"contacts": contacts}));
+        res.end();
     } else {
         switch (reqUrl.pathname) {
             case "/":
@@ -46,27 +66,6 @@ const server = http.createServer((req, res) => {
                     res.write(html);
                     res.end();
                 });
-                break;
-            case "/contact":
-                let contacts = [];
-
-                let person = new Person("Jhon", "03/17/1992");
-                let phone = new Phone("99", "33333333", "residential");
-                let phoneCell = new Phone("99", "999999999", "cellular");
-                let contact = new Contact(person, phone, phoneCell);
-
-                contacts.push(contact.toObject());
-
-                person = new Person("Jana", "06/17/1970");
-                phone = new Phone("99", "30000000", "residential");
-                phoneCell = new Phone("99", "999999999", "cellular");
-                contact = new Contact(person, phone, phoneCell);
-
-                contacts.push(contact.toObject());
-
-                res.writeHeader(200, { 'Content-Type': 'text/json' });
-                res.write(JSON.stringify(contacts));
-                res.end();
                 break;
             default:
                 res.writeHeader(404, { 'Content-Type': 'text/plain' });
