@@ -5,6 +5,11 @@ gulp.task('copy-css', () => {
           .pipe(gulp.dest('./build/static/css'))
 });
 
+gulp.task('copy-json', () => {
+    return gulp.src(['./static/json/*'])
+          .pipe(gulp.dest('./build/static/json'))
+});
+
 gulp.task('copy-js', () => {
     return gulp.src(['./static/js/*'])
           .pipe(gulp.dest('./build/static/js'))
@@ -15,4 +20,4 @@ gulp.task('copy-index', () => {
           .pipe(gulp.dest('./build'))
 });
 
-gulp.task('default', gulp.series(['copy-css', 'copy-js', 'copy-index']));
+gulp.task('default', gulp.series(['copy-css', 'copy-json', 'copy-js', 'copy-index']));
