@@ -1,0 +1,36 @@
+{
+    "contacts": [
+        {
+            "person": {
+                "name": "Jhon",
+                "birthDate": "03/17/1992"
+            },
+            "phone": {
+                "DDD": "99",
+                "number": "33333333",
+                "type": "residential"
+            },
+            "cellPhone": {
+                "DDD": "99",
+                "number": "999999999",
+                "type": "cellular"
+            }
+        },
+        {
+            "person": {
+                "name": "Jana",
+                "birthDate": "06/17/1970"
+            },
+            "phone": {
+                "DDD": "99",
+                "number": "30000000",
+                "type": "residential"
+            },
+            "cellPhone": {
+                "DDD": "99",
+                "number": "999999999",
+                "type": "cellular"
+            }
+        }
+    ]
+}
